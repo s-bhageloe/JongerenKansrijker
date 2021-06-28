@@ -1,13 +1,3 @@
-<?php 
-
-if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)){
-    require_once 'database.php';
-    $db = new database();
-    $db->login($_POST['username'], $_POST['password']);
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,3 +18,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)){
     </form>
 </body>
 </html>
+
+<?php
+
+include "database.php";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+
+      $db = new database();
+      $db->login($username, $password);      
+  }
+
+
+?>

@@ -1,8 +1,7 @@
 <?php 
 
-require_once 'database.php';
+include 'database.php';
 
-$db = new database();
 $sql = "INSERT INTO medewerker VALUES (:id, :naam, :tussenvoegsel, :achternaam, :uname, :psw)";
 
 
@@ -15,5 +14,6 @@ $placeholders = [
     'psw'=> password_hash('user', PASSWORD_DEFAULT)
 ];
 
+$db = new database();
 $db->insert($sql, $placeholders);
 ?>
